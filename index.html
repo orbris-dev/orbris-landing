@@ -20,10 +20,16 @@
     .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.08em; }
     nav a { color: #94a3b8; text-decoration: none; margin-left: 1.25rem; }
     nav a:hover, nav a:focus { color: #f8fafc; }
-    .hero { padding: 4rem 0 3rem; text-align: center; }
-    .hero h1 { font-size: 2.25rem; line-height: 1.2; margin-bottom: 1rem; }
-    .hero p { color: #cbd5e1; max-width: 640px; margin: 0 auto 2rem; font-size: 1.1rem; }
-    .buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero { padding: 3rem 0; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+    .badge { display: inline-block; background: #f59e0b; color: #0f172a; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.35rem 0.8rem; border-radius: 999px; margin-bottom: 1rem; }
+    .hero h1 { font-size: 2.5rem; line-height: 1.15; margin-bottom: 0.5rem; }
+    .hero .sub { color: #94a3b8; font-size: 1rem; margin-bottom: 1rem; }
+    .hero p { color: #cbd5e1; margin-bottom: 1.25rem; font-size: 1.05rem; }
+    .perks { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1.25rem; margin-bottom: 1.75rem; color: #cbd5e1; }
+    .perks li::before { content: "\2713"; color: #f59e0b; font-weight: 700; margin-right: 0.5rem; }
+    .photo { background: #fff; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+    .photo img { width: 100%; height: auto; display: block; }
+    .buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       padding: 0.9rem 1.6rem; border-radius: 0.75rem; text-decoration: none;
       font-weight: 600; font-size: 1.05rem;
@@ -33,16 +39,15 @@
     .tiktok { background: #f8fafc; color: #0f172a; }
     section { padding: 2.5rem 0; }
     h2 { font-size: 1.6rem; margin-bottom: 1.25rem; }
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .card { background: #1e293b; border-radius: 1rem; overflow: hidden; }
-    .card img { width: 100%; height: 260px; object-fit: contain; background: #fff; display: block; }
-    .card div { padding: 1.25rem; }
-    .card h3 { margin-bottom: 0.5rem; }
-    .card p { color: #cbd5e1; font-size: 0.95rem; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; list-style: none; }
-    .features li { background: #1e293b; border-radius: 0.75rem; padding: 1rem 1.25rem; color: #cbd5e1; }
-    .features strong { display: block; color: #f8fafc; }
-    .about p { color: #cbd5e1; max-width: 720px; margin-bottom: 1rem; }
+    .info { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem 0 3rem; }
+    .info section { background: #1e293b; border-radius: 1rem; padding: 1.75rem; }
+    .info p { color: #cbd5e1; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2rem; }
+      .hero h1 { font-size: 2rem; }
+      .photo { order: -1; }
+      .info { grid-template-columns: 1fr; }
+    }
     footer { border-top: 1px solid #1e293b; padding: 2rem 0; color: #94a3b8; font-size: 0.9rem; }
     footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     footer a { color: #94a3b8; }
@@ -54,7 +59,7 @@
     <div class="wrap">
       <div class="logo">ORBRIS</div>
       <nav aria-label="Main">
-        <a href="#products">Products</a>
+        <a href="#products">Star product</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -63,47 +68,40 @@
 
   <main>
     <div class="wrap">
-      <div class="hero">
-        <h1>A comfortable hybrid mattress, delivered in a box</h1>
-        <p>Orbris LLC is a small U.S. business. We sell the Chunova hybrid mattress with pocket springs and CertiPUR-US certified foam.</p>
-        <div class="buttons">
-          <a class="btn amazon" href="https://www.amazon.com/s?me=A1YEUIDML3NTYP&amp;marketplaceID=ATVPDKIKX0DER" target="_blank" rel="noopener">Shop on Amazon</a>
-          <a class="btn tiktok" href="https://www.tiktok.com/shop/store/orbris/7494173170342200521" target="_blank" rel="noopener">Shop on TikTok Shop</a>
+      <div class="hero" id="products">
+        <div>
+          <span class="badge">&#9733; Our star product</span>
+          <h1>Chunova 10-Inch King Hybrid Mattress</h1>
+          <p class="sub">King size &middot; 80&Prime; x 76&Prime; x 10&Prime; &middot; Medium firm</p>
+          <p>A hybrid mattress in a box. Individual pocket springs and a breathable top cover give steady support and a cool night's sleep.</p>
+          <ul class="perks">
+            <li>CertiPUR-US certified foam</li>
+            <li>Fiberglass free</li>
+            <li>Individual pocket springs</li>
+            <li>Isolated motion</li>
+            <li>10-year warranty</li>
+            <li>Ships in a box</li>
+          </ul>
+          <div class="buttons">
+            <a class="btn amazon" href="https://www.amazon.com/s?me=A1YEUIDML3NTYP&amp;marketplaceID=ATVPDKIKX0DER" target="_blank" rel="noopener">Shop on Amazon</a>
+            <a class="btn tiktok" href="https://www.tiktok.com/shop/store/orbris/7494173170342200521" target="_blank" rel="noopener">Shop on TikTok Shop</a>
+          </div>
+        </div>
+        <div class="photo">
+          <img src="https://m.media-amazon.com/images/I/81Lpq+EV8NL.jpg" alt="Chunova 10-inch king hybrid mattress, white">
         </div>
       </div>
 
-      <section id="products">
-        <h2>Our product</h2>
-        <div class="products">
-          <article class="card">
-            <img src="https://m.media-amazon.com/images/I/81Lpq+EV8NL.jpg" alt="Chunova 10-inch king hybrid mattress, white" loading="lazy">
-            <div>
-              <h3>Chunova 10-Inch King Hybrid Mattress</h3>
-              <p>Medium firm. Individual pocket springs. Breathable top cover. CertiPUR-US certified foam, fiberglass free. Size: King (80&Prime; x 76&Prime; x 10&Prime;).</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section>
-        <h2>Why Chunova</h2>
-        <ul class="features">
-          <li><strong>CertiPUR-US</strong>Certified foam, fiberglass free.</li>
-          <li><strong>Pocket springs</strong>Each spring moves on its own, so motion stays isolated.</li>
-          <li><strong>10-year warranty</strong>Covers the mattress.</li>
-          <li><strong>Ships in a box</strong>Rolled and compressed for easy delivery.</li>
-        </ul>
-      </section>
-
-      <section id="about" class="about">
-        <h2>About Orbris</h2>
-        <p>Orbris LLC sells hybrid mattresses under the Chunova brand. We sell directly to customers on Amazon and TikTok Shop, and we handle our own orders and customer support.</p>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Questions about an order or a product? Email <a href="mailto:info@orbris.com">info@orbris.com</a>.</p>
-      </section>
+      <div class="info">
+        <section id="about">
+          <h2>About Orbris</h2>
+          <p>Orbris LLC is a small U.S. business. We sell hybrid mattresses under the Chunova brand directly to customers on Amazon and TikTok Shop, and we handle our own orders and customer support.</p>
+        </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Questions about an order or a product? Email <a href="mailto:info@orbris.com">info@orbris.com</a>.</p>
+        </section>
+      </div>
     </div>
   </main>
 
